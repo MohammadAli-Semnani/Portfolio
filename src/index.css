@@ -6,7 +6,7 @@
 
 @layer base{
   body{
-    @apply font-[Raleway] bg-darkBlue
+    @apply font-[Raleway] bg-[url('./assets/bg.png')] 
    
   }
 }

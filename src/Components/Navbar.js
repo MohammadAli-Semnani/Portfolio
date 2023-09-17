@@ -25,7 +25,7 @@ const Navbar = () => {
   return (
     <div>
       <div className="flex justify-between ">
-        <img src={Logo} className="md:h-10 mt-8 h-10 ml-8" />
+        <img src={Logo} className="md:h-10 h-10 mt-8  ml-8" />
         <div className="hidden mt-2 md:flex ">
           <ul className=" flex flex-row mr-16 mt-8">
             <li className="transition duration-150 border-b-2 border-transparent hover:border-lightBlue mr-7 text-slate-300 text-xl hover:scale-110 font-semibold hover:text-lightBlue cursor-pointer transition-all ease-in-out">
