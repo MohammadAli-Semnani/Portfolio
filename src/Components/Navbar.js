@@ -1,51 +1,50 @@
 import React, {useRef, useState, useEffect} from "react";
-import {logo} from "../assets";
+import {Logo} from "../assets";
 const Navbar = () => {
-    const [toggle, setToggle] = useState(false);
-    const menuState = useRef(null)
+  const [toggle, setToggle] = useState(false);
+  const menuState = useRef(null);
 
   const menuHandler = () => {
     setToggle(true);
+  };
+
+  const handleOutsideClick = (e) => {
+    if (menuState.current && !menuState.current.contains(e.target)) {
+      setToggle(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleOutsideClick);
+
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
     };
-    
-    const handleOutsideClick = (e) => {
-      if (menuState.current && !menuState.current.contains(e.target)) {
-        setToggle(false);
-      }
-    };
-
-    useEffect(() => {
-      document.addEventListener("mousedown", handleOutsideClick);
-
-      return () => {
-        document.removeEventListener("mousedown", handleOutsideClick);
-      };
-    }, []);
-
+  }, []);
 
   return (
     <div>
       <div className="flex justify-between ">
-        <img src={logo} className="md:h-10 mt-8 h-10 ml-8" />
+        <img src={Logo} className="md:h-10 mt-8 h-10 ml-8" />
         <div className="hidden mt-2 md:flex ">
           <ul className=" flex flex-row mr-16 mt-8">
-            <li className="mr-7 text-xl hover:scale-110 font-semibold hover:text-sky-600 cursor-pointer transition-all ease-in-out">
-              Home
-            </li>
-            <li className="mr-7 text-xl hover:scale-110 font-semibold hover:text-sky-600 cursor-pointer transition-all ease-in-out">
-              About Me
-            </li>
-            <li className="mr-7 text-xl hover:scale-110 font-semibold hover:text-sky-600 cursor-pointer transition-all ease-in-out">
+            <li className="transition duration-150 border-b-2 border-transparent hover:border-lightBlue mr-7 text-slate-300 text-xl hover:scale-110 font-semibold hover:text-lightBlue cursor-pointer transition-all ease-in-out">
               Skills
             </li>
-            <li className="mr-7 text-xl hover:scale-110 font-semibold hover:text-sky-600 cursor-pointer transition-all ease-in-out">
-              Portfolio
+            <li className="transition duration-150 border-b-2 border-transparent hover:border-lightBlue mr-7 text-slate-300 text-xl hover:scale-110 font-semibold hover:text-lightBlue cursor-pointer transition-all ease-in-out">
+              Contact us
             </li>
-            <li className="mr-7 text-xl hover:scale-110 font-semibold hover:text-sky-600 cursor-pointer transition-all ease-in-out">
+            <li className="transition duration-150 border-b-2 border-transparent hover:border-lightBlue mr-7 text-slate-300 text-xl hover:scale-110 font-semibold hover:text-lightBlue cursor-pointer transition-all ease-in-out">
               Companies
             </li>
-            <li className="mr-7 text-xl hover:scale-110 font-semibold hover:text-sky-600 cursor-pointer transition-all ease-in-out">
-              Contact us
+            <li className="transition duration-150 border-b-2 border-transparent hover:border-lightBlue mr-7 text-slate-300 text-xl hover:scale-110 font-semibold hover:text-lightBlue cursor-pointer transition-all ease-in-out">
+              Portfolio
+            </li>
+            <li className="transition duration-150 border-b-2 border-transparent hover:border-lightBlue mr-7 text-slate-300 text-xl hover:scale-110 font-semibold hover:text-lightBlue cursor-pointer transition-all ease-in-out">
+              About Me
+            </li>
+            <li className="transition duration-150 border-b-2 border-transparent hover:border-lightBlue mr-7 hover:before:contents:underline text-slate-300 text-xl hover:scale-110 font-semibold hover:text-lightBlue cursor-pointer transition-all ease-in-out">
+              Home
             </li>
           </ul>
         </div>
@@ -53,25 +52,25 @@ const Navbar = () => {
           {toggle ? (
             <ul
               ref={menuState}
-              className={`min-h-screen transition-all ease-in-out flex flex-col bg-sky-700 p-2 transition-all transform  ease-in-out ${
+              className={`min-h-screen transition-all ease-in-out flex flex-col bg-balanceBlue p-2 transition-all transform  ease-in-out ${
                 toggle && "animate-[wiggle_.6s_ease-in-out]"
               }`}>
-              <li className="p-4 hover:scale-110 font-semibold hover:text-sky-100 cursor-pointer transition-all ease-in-out">
+              <li className="p-4 bold hover:scale-110 font-semibold hover:text-sky-100 cursor-pointer transition-all ease-in-out">
                 Home
               </li>
-              <li className="p-4 hover:scale-110 font-semibold hover:text-sky-100 cursor-pointer transition-all ease-in-out">
+              <li className="p-4 bold hover:scale-110 font-semibold hover:text-sky-100 cursor-pointer transition-all ease-in-out">
                 About Me
               </li>
-              <li className="p-4 hover:scale-110 font-semibold hover:text-sky-100 cursor-pointer transition-all ease-in-out">
+              <li className="p-4 bold hover:scale-110 font-semibold hover:text-sky-100 cursor-pointer transition-all ease-in-out">
                 Skills
               </li>
-              <li className="p-4 hover:scale-110 font-semibold hover:text-sky-100 cursor-pointer transition-all ease-in-out">
+              <li className="p-4 bold hover:scale-110 font-semibold hover:text-sky-100 cursor-pointer transition-all ease-in-out">
                 Portfolio
               </li>
-              <li className="p-4 hover:scale-110 font-semibold hover:text-sky-100 cursor-pointer transition-all ease-in-out">
+              <li className="p-4 bold hover:scale-110 font-semibold hover:text-sky-100 cursor-pointer transition-all ease-in-out">
                 Companies
               </li>
-              <li className="p-4 hover:scale-110 font-semibold hover:text-sky-100 cursor-pointer transition-all ease-in-out">
+              <li className="p-4 bold hover:scale-110 font-semibold hover:text-sky-100 cursor-pointer transition-all ease-in-out">
                 Contact us
               </li>
             </ul>

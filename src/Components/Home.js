@@ -2,8 +2,10 @@ import React from 'react'
 
 const Home = () => {
   return (
-    <div>Home</div>
-  )
+    <div className="mt-8 text-2xl bold">
+      
+    </div>
+  );
 }
 
 export default Home

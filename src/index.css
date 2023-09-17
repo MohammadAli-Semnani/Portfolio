@@ -6,7 +6,8 @@
 
 @layer base{
   body{
-    @apply font-[Raleway]
+    @apply font-[Raleway] bg-darkBlue
+   
   }
 }
 body {
